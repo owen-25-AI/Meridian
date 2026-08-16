@@ -1,0 +1,39 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b1420"/>
+      <stop offset="1" stop-color="#123449"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="26" y1="26" x2="94" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- background tile -->
+  <rect width="120" height="120" rx="28" fill="url(#bg)"/>
+
+  <!-- ambient glow -->
+  <circle cx="60" cy="60" r="46" fill="#5eead4" opacity="0.10" filter="url(#glow)"/>
+
+  <!-- meridian ring (the "path to care") -->
+  <circle cx="60" cy="60" r="34" fill="none" stroke="url(#ring)" stroke-width="5"
+          stroke-linecap="round" stroke-dasharray="160 54"
+          transform="rotate(-38 60 60)" opacity="0.9"/>
+
+  <!-- destination marker -->
+  <circle cx="86" cy="33" r="6" fill="#5eead4" opacity="0.35"/>
+  <circle cx="86" cy="33" r="2.6" fill="#f0fffb"/>
+
+  <!-- pulse breaking through the ring -->
+  <path d="M12,60 L38,60 L47,40 L58,80 L67,48 L75,60 L108,60"
+        fill="none" stroke="#f0fffb" stroke-width="4.5"
+        stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+</svg>
